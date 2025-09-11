@@ -4,6 +4,8 @@ import foto3 from '../assets/ch3.jpg'
 import foto4 from '../assets/ch4.jpg'
 import Rate from './rate.jsx'
 import Boton from './promedio.jsx'
+import Reset from './reset.jsx'
+import Modal from './modal.jsx'
 
 import { useState } from 'react'
 
@@ -16,6 +18,8 @@ function Galeria() {
       {id:4, src:foto4,rate:0},
       ]);
 
+      const[modal, setModal]=useState(false);
+
       const ordenaImagenes= (index, rate)=>{
         const imagenesOrdenadas=[...imagenes]
         imagenesOrdenadas[index].rate=rate;
@@ -26,6 +30,15 @@ function Galeria() {
     const prom=()=>{
      
       console.log( (imagenes[0].rate+imagenes[1].rate+imagenes[2].rate+imagenes[3].rate)/4)
+      setModal(true);
+      console.log(modal);
+    }
+
+    const r=()=>{
+      imagenes[0].rate=0;
+      imagenes[1].rate=0;
+      imagenes[2].rate=0;
+      imagenes[3].rate=0;
     }
 
   return (
@@ -42,6 +55,12 @@ function Galeria() {
       ))}
         
       <Boton onClick={prom}/>
+     
+      <Reset onClick={r}/>
+
+      <Modal modal={modal} setModal={setModal}>
+
+      </Modal>
 
     </div>
     </>
