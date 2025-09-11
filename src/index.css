@@ -1,0 +1,74 @@
+.titulo{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid 2px #5D7960;
+    color: #393F3A;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+}
+
+.galeria{
+    display: flex;
+    justify-content: center;
+    min-height:80vh;
+    flex-wrap: wrap;
+    gap:20px;
+    margin: 2%;
+    align-items: center;
+}
+
+.leyenda{
+    display: flex;
+    justify-content: center;
+    height: 10vh;
+    background-color: #5D7960;
+    color: white;
+}
+
+.imagen{
+    height: 400px;
+    transition: 1s;
+    width: 400px;
+    border-radius: 2%;
+}
+
+.imagen:hover{
+    transform: scale(1.02)
+}
+
+@media only screen and (max-width:600px){
+    .imagen{
+    height: 250;
+    transition: 1s;
+    width: 250;
+    border-radius: 2%;
+}
+}
+
+.card{
+  box-shadow:2px 2px 5px black;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #5D7960;
+}
+
+.star{
+  font-size: 24px;
+}
+
+.inactivo{
+  cursor: pointer;
+}
+
+.activo{
+  cursor: pointer;
+  color: gold;
+}
+
+.inactivo:hover{
+  color: yellow;
+}
