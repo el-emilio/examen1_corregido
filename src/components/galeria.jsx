@@ -7,15 +7,15 @@ import Boton from './promedio.jsx'
 import Modal from './modal.jsx'
 import Envia from './envia.jsx'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 function Galeria() {
 
   const [imagenes, setImages] = useState([
-    { id: 1, src: foto1, rate: 0 },
-    { id: 2, src: foto2, rate: 0 },
-    { id: 3, src: foto3, rate: 0 },
-    { id: 4, src: foto4, rate: 0 },
+    { id: 1, src: foto1, rate: 0, ref: useRef() },
+    { id: 2, src: foto2, rate: 0, ref: useRef() },
+    { id: 3, src: foto3, rate: 0, ref: useRef() },
+    { id: 4, src: foto4, rate: 0, ref: useRef() },
   ]);
 
   const [modal, setModal] = useState(false);
@@ -41,7 +41,9 @@ function Galeria() {
     const newImages=[...imagenes];
     newImages.map((img)=>(img.rate=0));
     setImages(newImages)
-  }
+
+    imagenes.map((img)=>img.ref.current.resetear())
+  };
 
   return (
     <>
@@ -51,7 +53,7 @@ function Galeria() {
 
           <div className="scoreCard" key={img.id}>
             <img src={img.src} alt="imagen" className='imagen' />
-            <Rate avisarCambio={ordenaImagenes} index={i} />
+            <Rate ref={img.ref} avisarCambio={ordenaImagenes} index={i} />
           </div>
 
         ))}

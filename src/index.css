@@ -64,12 +64,12 @@
   cursor: pointer;
 }
 
-.activo{
+.active{
   cursor: pointer;
   color: gold;
 }
 
-.inactivo:hover{
+.inactive:hover{
   color: yellow;
 }
 
